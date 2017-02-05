@@ -1,8 +1,8 @@
 #!/bin/sh
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
-
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads
 
 if [ ""$1"" = "" ];then
@@ -23,12 +23,18 @@ else
   gccVersion=$3
 fi
 
-BASEDIR=/Developer/Cocotron/1.0/$targetPlatform/$targetArchitecture
-PREFIX=`pwd`/../system/i386-mingw32msvc
+BASEDIR=/Developer/Cocotron/$productVersion/$targetPlatform/$targetArchitecture
+#PREFIX=`pwd`/../system/i386-mingw32msvc
+if [[ "$DSTROOT" == *"../"* ]] ;then
+	PREFIX=`pwd`/$DSTROOT/
+else
+	PREFIX=$DSTROOT/
+fi
+
 
 BUILD=/tmp/build_png
 LIBPNGVERSION=libpng16
-VERSION=1.6.18
+VERSION=1.5.10
 
 $scriptResources/downloadFilesIfNeeded.sh $downloadFolder ftp://ftp.simplesystems.org/pub/libpng/png/src/${LIBPNGVERSION}/libpng-${VERSION}.tar.gz
 
@@ -47,7 +53,7 @@ TARGET=$($GCC -dumpmachine)
 
 
 
-COCOTRON=/Developer/Cocotron/1.0//build/$targetPlatform/$targetArchitecture
+COCOTRON=/Developer/Cocotron/$productVersion//build/$targetPlatform/$targetArchitecture
 INSTALL_PREFIX=$PREFIX/libpng
 BINARY_PATH=$INSTALL_PREFIX/bin
 INCLUDE_PATH=$INSTALL_PREFIX/include

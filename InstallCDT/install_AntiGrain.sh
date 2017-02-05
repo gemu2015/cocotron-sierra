@@ -4,16 +4,28 @@
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
 
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+
+
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads
 
+
+
 if [ ""$1"" = "" ];then
-	AGG_VERSION=2.4
+	AGG_VERSION=2.5
 else
 	AGG_VERSION=$1
 fi
 
-PREFIX=`pwd`/../system/i386-mingw32msvc/agg-$AGG_VERSION
+#PREFIX=`pwd`/../system/i386-mingw32msvc/agg-$AGG_VERSION
+if [[ "$DSTROOT" == *"../"* ]] ;then
+	PREFIX=`pwd`/$DSTROOT/agg-$AGG_VERSION
+else
+	PREFIX=$DSTROOT/agg-$AGG_VERSION
+fi
+
+
 BUILD=/tmp/build_AntiGrain
 
 $scriptResources/downloadFilesIfNeeded.sh $downloadFolder "http://www.antigrain.com/agg-$AGG_VERSION.zip"
@@ -37,9 +49,9 @@ cd ..
 cat > Makefile.in.Cocotron <<EOF
 AGGLIBS= -lagg 
 AGGCXXFLAGS = -O3
-CXX = /Developer/Cocotron/1.0/Windows/i386/gcc-4.3.1/bin/i386-pc-mingw32msvc-g++
-C = /Developer/Cocotron/1.0/Windows/i386/gcc-4.3.1/bin/i386-pc-mingw32msvc-gcc
-LIB = /Developer/Cocotron/1.0/Windows/i386/gcc-4.3.1/bin/i386-pc-mingw32msvc-ar cr
+CXX = /Developer/Cocotron/$productVersion/Windows/i386/gcc-4.3.1/bin/i386-pc-mingw32msvc-g++
+C = /Developer/Cocotron/$productVersion/Windows/i386/gcc-4.3.1/bin/i386-pc-mingw32msvc-gcc
+LIB = /Developer/Cocotron/$productVersion/Windows/i386/gcc-4.3.1/bin/i386-pc-mingw32msvc-ar cr
 
 .PHONY : clean
 EOF

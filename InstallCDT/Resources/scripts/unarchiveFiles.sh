@@ -34,12 +34,15 @@ do
  elif [ -f $locationOfFile.tar.bz2 ];then
   extension=".tar.bz2"
   unarchiveFlags="-xjf"
+ elif [ -f $locationOfFile.zip ];then
+  extension=".zip"
+  unarchiveFlags="-xf"
  else
    echo "Unable to determine archive format of $locationOfFile, exiting"
    exit 1
  fi
 
  echo -n "Unarchiving $locationOfFile$extension ..."
- (cd $destinationFolder;gnutar $unarchiveFlags $locationOfFile$extension)
+ (cd $destinationFolder;bsdtar $unarchiveFlags $locationOfFile$extension)
  echo " done."
 done

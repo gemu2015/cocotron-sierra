@@ -1,12 +1,18 @@
 #!/bin/sh
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
-
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads/pthread
 
 
-PREFIX=`pwd`/../system/i386-mingw32msvc
+#PREFIX=`pwd`/../system/i386-mingw32msvc
+if [[ "$DSTROOT" == *"../"* ]] ;then
+PREFIX=`pwd`/$DSTROOT/
+else
+PREFIX=$DSTROOT/
+fi
+
 INCLUDE=$PREFIX/include
 BIN=$PREFIX/bin
 LIB=$PREFIX/lib

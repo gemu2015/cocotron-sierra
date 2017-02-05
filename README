@@ -1,1 +1,32 @@
-The Cocotron
+This is a cocotron master clone modified for osx sierra and tested with xcode 8.21
+
+all downloads are provided as gz or zip files
+
+see howto in InstallCDT
+
+(issues:  in the texteditor example there is always a dos like extra window ???)
+
+
+to ease things further i created an osx installer package that installs the cocotron developer tools and the latest cocotron master right in place.
+
+(cocotron master is installed in users/shared)
+
+i tested this package on virgin mavericks (xcode 6.2) and sierra (xcode 8.21) installs with no issues.
+
+you can immediately start development without any shell script.
+
+
+google drive link: https://drive.google.com/open?id=0B1o0z0BrwDRUVWNySlo0cFE5bEk
+
+
+remarks for installer package:
+
+if you want to execute an install script however you first have to install home.brew with preinstall.sh.
+
+if you clean the hole project and try to recompile you get => “File exists and is not a symbolic link”. I could not find the reason for that
+
+to solve this I had to delete the frameworks folder inside system/i386-mingw32msvc and recompile in this order => foundation, appkit and cocotron.
+
+
+
+ 

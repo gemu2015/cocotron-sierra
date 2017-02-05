@@ -1,13 +1,18 @@
 #!/bin/sh
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
-
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads
 
 SSLVERSION=0.9.8h-1
 
-PREFIX=`pwd`/../system/i386-mingw32msvc/openssl-$SSLVERSION
+#PREFIX=`pwd`/../system/i386-mingw32msvc/openssl-$SSLVERSION
+if [[ "$DSTROOT" == *"../"* ]] ;then
+PREFIX=`pwd`/$DSTROOT/openssl-$SSLVERSION
+else
+PREFIX=$DSTROOT/openssl-$SSLVERSION
+fi
 
 INCLUDE=$PREFIX/include
 BIN=$PREFIX/bin

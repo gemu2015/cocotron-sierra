@@ -1,0 +1,2 @@
+gcc patched to only warn on command line errors 
+gcc patched to ignore Xlinker commands (xcode 8.x)

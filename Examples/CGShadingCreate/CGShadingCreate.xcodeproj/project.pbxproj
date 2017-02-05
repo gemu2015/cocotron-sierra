@@ -11,6 +11,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		BCE73F321E321EB3007FC1E3 /* libjpeg-8.dll in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCE73F311E321EB3007FC1E3 /* libjpeg-8.dll */; };
+		BCE73F341E321EBE007FC1E3 /* freetype6.dll in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCE73F331E321EBE007FC1E3 /* freetype6.dll */; };
+		BCE73F361E321ED4007FC1E3 /* zlib1.dll in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCE73F351E321ED4007FC1E3 /* zlib1.dll */; };
 		FEFC48F00BB21906006628BF /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		FEFC48F10BB21906006628BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		FEFC48F30BB21906006628BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -59,6 +62,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BCE73F2D1E321E96007FC1E3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				BCE73F321E321EB3007FC1E3 /* libjpeg-8.dll in CopyFiles */,
+				BCE73F341E321EBE007FC1E3 /* freetype6.dll in CopyFiles */,
+				BCE73F361E321ED4007FC1E3 /* zlib1.dll in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -68,6 +86,9 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CGShadingCreate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGShadingCreate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE73F311E321EB3007FC1E3 /* libjpeg-8.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = "libjpeg-8.dll"; sourceTree = "<group>"; };
+		BCE73F331E321EBE007FC1E3 /* freetype6.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = freetype6.dll; sourceTree = "<group>"; };
+		BCE73F351E321ED4007FC1E3 /* zlib1.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = zlib1.dll; sourceTree = "<group>"; };
 		FE386AA415268151007CC8C7 /* Cocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cocoa.xcodeproj; path = ../../Cocoa/Cocoa.xcodeproj; sourceTree = "<group>"; };
 		FEFC48F90BB21906006628BF /* CGShadingCreate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGShadingCreate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFC49280BB21B1D006628BF /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
@@ -132,6 +153,9 @@
 		29B97314FDCFA39411CA2CEA /* CGShadingCreate */ = {
 			isa = PBXGroup;
 			children = (
+				BCE73F351E321ED4007FC1E3 /* zlib1.dll */,
+				BCE73F331E321EBE007FC1E3 /* freetype6.dll */,
+				BCE73F311E321EB3007FC1E3 /* libjpeg-8.dll */,
 				FE386AA415268151007CC8C7 /* Cocoa.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -211,6 +235,7 @@
 				FEFC48F20BB21906006628BF /* Sources */,
 				FEFC48F40BB21906006628BF /* Frameworks */,
 				FEB8F1150D3DB75D00754380 /* ShellScript */,
+				BCE73F2D1E321E96007FC1E3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -228,6 +253,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CGShadingCreate" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -397,7 +424,7 @@
 				EFFECTIVE_PLATFORM_NAME = "-windows";
 				EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Windows";
 				EXECUTABLE_SUFFIX = .exe;
-				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Windows/i386/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "../../system/i386-mingw32msvc/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = "";

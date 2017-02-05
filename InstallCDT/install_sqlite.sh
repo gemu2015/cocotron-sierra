@@ -1,14 +1,23 @@
 #!/bin/sh
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
-
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads
 
-BASEDIR=/Developer/Cocotron/1.0/Windows/i386/gcc-4.3.1/
-PREFIX=`pwd`/../system/i386-mingw32msvc
+BASEDIR=/Developer/Cocotron/$productVersion/Windows/i386/gcc-4.3.1/
+#PREFIX=`pwd`/../system/i386-mingw32msvc
+if [[ "$DSTROOT" == *"../"* ]] ;then
+PREFIX=`pwd`/$DSTROOT/
+else
+PREFIX=$DSTROOT/
+fi
 
-$scriptResources/downloadFilesIfNeeded.sh $downloadFolder "http://cocotron.googlecode.com/files/sqlite-dll-win32-x86-3070600.zip"
+
+google_url=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cocotron-tools-gpl3
+
+
+$scriptResources/downloadFilesIfNeeded.sh $downloadFolder "$google_url/sqlite-dll-win32-x86-3070600.zip"
 
 TMPDIR=/tmp/install_sqlite$$
 echo $TMPDIR

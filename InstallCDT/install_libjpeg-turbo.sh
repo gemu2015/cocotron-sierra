@@ -2,7 +2,10 @@
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
 
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+
+
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads
 
 if [ ""$1"" = "" ];then
@@ -23,8 +26,14 @@ else
   gccVersion=$3
 fi
 
-BASEDIR=/Developer/Cocotron/1.0/$targetPlatform/$targetArchitecture
-PREFIX=`pwd`/../system/i386-mingw32msvc/libjpeg
+BASEDIR=/Developer/Cocotron/$productVersion/$targetPlatform/$targetArchitecture
+#PREFIX=`pwd`/../system/i386-mingw32msvc/libjpeg
+if [[ "$DSTROOT" == *"../"* ]] ;then
+PREFIX=`pwd`/$DSTROOT/libjpeg
+else
+PREFIX=$DSTROOT/libjpeg
+fi
+
 
 BUILD=/tmp/build_libjepgturbo
 

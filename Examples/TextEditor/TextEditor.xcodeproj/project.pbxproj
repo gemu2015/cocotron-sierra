@@ -13,6 +13,9 @@
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		BC6C54481E2D5456003E8BC9 /* freetype6.dll in Copy Files */ = {isa = PBXBuildFile; fileRef = BC6C54471E2D5456003E8BC9 /* freetype6.dll */; };
+		BC6C544A1E2D5473003E8BC9 /* zlib1.dll in Copy Files */ = {isa = PBXBuildFile; fileRef = BC6C54491E2D5473003E8BC9 /* zlib1.dll */; };
+		BC6C544C1E2D5484003E8BC9 /* libjpeg-8.dll in Copy Files */ = {isa = PBXBuildFile; fileRef = BC6C544B1E2D5484003E8BC9 /* libjpeg-8.dll */; };
 		FE2021971751B01F002A9EDC /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; };
 		FEBCB9391750326300056F54 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBCB9381750326300056F54 /* AppKit.framework */; };
 		FEBCB93B1750326E00056F54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBCB93A1750326E00056F54 /* Foundation.framework */; };
@@ -60,6 +63,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BC6C54431E2D5429003E8BC9 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				BC6C544A1E2D5473003E8BC9 /* zlib1.dll in Copy Files */,
+				BC6C544C1E2D5484003E8BC9 /* libjpeg-8.dll in Copy Files */,
+				BC6C54481E2D5456003E8BC9 /* freetype6.dll in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
@@ -72,6 +91,9 @@
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* TextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC6C54471E2D5456003E8BC9 /* freetype6.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = freetype6.dll; sourceTree = "<group>"; };
+		BC6C54491E2D5473003E8BC9 /* zlib1.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = zlib1.dll; sourceTree = "<group>"; };
+		BC6C544B1E2D5484003E8BC9 /* libjpeg-8.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = "libjpeg-8.dll"; sourceTree = "<group>"; };
 		FEB4EF2D15267D2000EC3CA1 /* Cocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cocoa.xcodeproj; path = ../../Cocoa/Cocoa.xcodeproj; sourceTree = "<group>"; };
 		FEBCB9381750326300056F54 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = "../../AppKit/build/sym/Release-i386-mingw32msvc/AppKit.framework"; sourceTree = "<group>"; };
 		FEBCB93A1750326E00056F54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = "../../Foundation/build/sym/Release-i386-pc-linux/Foundation.framework"; sourceTree = "<group>"; };
@@ -128,6 +150,9 @@
 		2A37F4AAFDCFA73011CA2CEA /* TextEditor */ = {
 			isa = PBXGroup;
 			children = (
+				BC6C544B1E2D5484003E8BC9 /* libjpeg-8.dll */,
+				BC6C54491E2D5473003E8BC9 /* zlib1.dll */,
+				BC6C54471E2D5456003E8BC9 /* freetype6.dll */,
 				FEBCB93A1750326E00056F54 /* Foundation.framework */,
 				FEBCB9381750326300056F54 /* AppKit.framework */,
 				FEB4EF2D15267D2000EC3CA1 /* Cocoa.xcodeproj */,
@@ -217,6 +242,7 @@
 				FEF2CA150B35153A005449C7 /* Sources */,
 				FEF2CA180B35153A005449C7 /* Frameworks */,
 				FEB6746C0D2F2909006EE835 /* ShellScript */,
+				BC6C54431E2D5429003E8BC9 /* Copy Files */,
 			);
 			buildRules = (
 			);

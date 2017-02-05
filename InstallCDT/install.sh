@@ -22,6 +22,8 @@
 # Usage: install.sh <platform> <architecture> <compiler> <compiler-version> <osVersion>"
 # Windows i386, Linux i386, Solaris sparc
 
+
+
 if [ ""$1"" = "" ];then
 	targetPlatform="Windows"
 else
@@ -102,6 +104,7 @@ set -eu
 cd "`dirname \"$0\"`"
 installResources=`pwd`/Resources
 
+
 if [ ! -d "$installResources" ];then
  /bin/echo "Unable to locate Resources directory at "$installResources
  exit 1
@@ -111,7 +114,9 @@ enableLanguages="c,objc,c++,obj-c++"
 
 installFolder=/Developer
 productName=Cocotron
-productVersion=1.0
+#productVersion=1.0
+
+read productVersion DSTROOT < "`pwd`/version.txt"
 
 binutilsVersion=2.21-20111025
 mingwRuntimeVersion=3.20
@@ -182,9 +187,9 @@ else
 fi
 
 
+
 scriptResources="$installResources/scripts"
 toolResources="$installResources/tools"
-
 
 
 productFolder=$installFolder/$productName/$productVersion
@@ -196,16 +201,25 @@ buildFolder=$productFolder/build/$targetPlatform/$targetArchitecture
 resultFolder=$productFolder/$targetPlatform/$targetArchitecture/$compiler-$compilerVersion
 toolFolder=$productFolder/bin
 
+
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+downloadfile=$dir/Downloads
+
+
 PATH="$resultFolder/bin:$PATH"
 
-downloadCompilerIfNeeded(){
-	$scriptResources/downloadFilesIfNeeded.sh $downloadFolder "http://cocotron-tools-gpl3.googlecode.com/files/$compiler-$compilerVersion$compilerVersionDate.tar.bz2 http://ftp.sunet.se/pub/gnu/gmp/gmp-$gmpVersion.tar.bz2 http://cocotron-binutils-2-21.googlecode.com/files/binutils-$binutilsVersion.tar.gz http://cocotron-tools-gpl3.googlecode.com/files/mpfr-$mpfrVersion.tar.bz2"
+google_url=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cocotron-tools-gpl3/
+#${url_google_cocotron_Download_ARCHIVE}/cocotron-binutils-2-21/binutils-$binutilsVersion.tar.gz \
+bu_google_url=https://code.google.com/archive/p/cocotron-tools-gpl3/downloads/binutils-$binutilsVersion.tar.bz2
+
+downloadCompilerIfNeeded() {
+#$scriptResources/downloadFilesIfNeeded.sh $downloadFolder "$google_url/$compiler-$compilerVersion$compilerVersionDate.zip ftp.gnu.org/gnu/gmp/gmp-$gmpVersion.tar.bz2 $bu_google_url $google_url/mpfr-$mpfrVersion.tar.bz2"
 	$scriptResources/unarchiveFiles.sh $downloadFolder $sourceFolder "$compiler-$compilerVersion$compilerVersionDate binutils-$binutilsVersion gmp-$gmpVersion mpfr-$mpfrVersion"
 }
 
-createWindowsInterfaceIfNeeded(){
-	"$scriptResources/downloadFilesIfNeeded.sh" $downloadFolder "http://cocotron-tools-gpl3.googlecode.com/files/mingwrt-$mingwRuntimeVersion-mingw32-dev.tar.gz http://cocotron-tools-gpl3.googlecode.com/files/w32api-$mingwAPIVersion-mingw32-dev.tar.gz"
 
+createWindowsInterfaceIfNeeded() {
+	"$scriptResources/downloadFilesIfNeeded.sh" $downloadFolder "$google_url/mingwrt-$mingwRuntimeVersion-mingw32-dev.tar.gz $google_url/w32api-$mingwAPIVersion-mingw32-dev.tar.gz"
 	"$scriptResources/unarchiveFiles.sh" $downloadFolder $interfaceFolder "mingwrt-$mingwRuntimeVersion-mingw32-dev w32api-$mingwAPIVersion-mingw32-dev"
 }
 
@@ -235,7 +249,7 @@ copyPlatformInterface(){
 		exit 1
 	else
 		mkdir -p $resultFolder/$compilerTarget
-		(cd $interfaceFolder;gnutar -cf - *) | (cd $resultFolder/$compilerTarget;gnutar -xf -)
+		(cd $interfaceFolder;bsdtar -cf - *) | (cd $resultFolder/$compilerTarget;bsdtar -xf -)
 	fi
 }
 
@@ -325,6 +339,14 @@ stripBinaries() {
 	fi
 	/bin/echo "done."
 }
+
+/bin/echo -n "extracting download."
+mkdir -p $productFolder
+
+rm -rf $downloadFolder
+
+cp -R $downloadfile $productFolder
+
 
 "create"$targetPlatform"InterfaceIfNeeded"
 downloadCompilerIfNeeded

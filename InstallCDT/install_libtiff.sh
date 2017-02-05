@@ -1,8 +1,8 @@
 #!/bin/sh
 installResources=`pwd`/Resources
 scriptResources=$installResources/scripts
-
-productFolder=/Developer/Cocotron/1.0
+read productVersion DSTROOT < "`pwd`/version.txt"
+productFolder=/Developer/Cocotron/$productVersion
 downloadFolder=$productFolder/Downloads
 
 if [ ""$1"" = "" ];then
@@ -23,12 +23,17 @@ else
   gccVersion=$3
 fi
 
-BASEDIR=/Developer/Cocotron/1.0/$targetPlatform/$targetArchitecture
-PREFIX=`pwd`/../system/i386-mingw32msvc
+BASEDIR=/Developer/Cocotron/$productVersion/$targetPlatform/$targetArchitecture
+#PREFIX=`pwd`/../system/i386-mingw32msvc
+if [[ "$DSTROOT" == *"../"* ]] ;then
+	PREFIX=`pwd`/$DSTROOT/
+else
+	PREFIX=$DSTROOT/
+fi
 
 BUILD=/tmp/build_tiff
 
-TIFFVERSION=4.0.1
+TIFFVERSION=4.0.3
 $scriptResources/downloadFilesIfNeeded.sh $downloadFolder ftp://ftp.remotesensing.org/pub/libtiff//tiff-${TIFFVERSION}.tar.gz
 
 mkdir -p $BUILD
@@ -44,7 +49,7 @@ AR=$(echo $BASEDIR/gcc-$gccVersion/bin/*ar)
 RANLIB=$(echo $BASEDIR/gcc-$gccVersion/bin/*ranlib)
 TARGET=$($GCC -dumpmachine)
 
-COCOTRON=/Developer/Cocotron/1.0//build/$targetPlatform/$targetArchitecture
+COCOTRON=/Developer/Cocotron/$productVersion//build/$targetPlatform/$targetArchitecture
 INSTALL_PREFIX=$PREFIX/libtiff
 BINARY_PATH=$INSTALL_PREFIX/bin
 INCLUDE_PATH=$INSTALL_PREFIX/include

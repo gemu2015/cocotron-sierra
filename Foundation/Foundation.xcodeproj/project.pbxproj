@@ -4048,6 +4048,10 @@
 		6E2801BB09746B8900EC542B /* Windows-i386 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 			};
 			name = "Windows-i386";
 		};
@@ -4071,12 +4075,22 @@
 		7E891F1C0D4964FF008150D3 /* FreeBSD-i386 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$DSTROOT/Frameworks/**",
+				);
 			};
 			name = "FreeBSD-i386";
 		};
 		CFC5B42E1AF4671C00FBB52A /* Darwin-i386 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$DSTROOT/Frameworks/**",
+				);
 			};
 			name = "Darwin-i386";
 		};
@@ -4100,6 +4114,11 @@
 		CFC5B4391AF4672500FBB52A /* Darwin-x86_64 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$DSTROOT/Frameworks/**",
+				);
 			};
 			name = "Darwin-x86_64";
 		};
@@ -4123,6 +4142,11 @@
 		CFC5B4441AF4672F00FBB52A /* Linux-i386 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$DSTROOT/Frameworks/**",
+				);
 			};
 			name = "Linux-i386";
 		};
@@ -4146,6 +4170,11 @@
 		CFC5B44F1AF4673900FBB52A /* Linux-arm */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$DSTROOT/Frameworks/**",
+				);
 			};
 			name = "Linux-arm";
 		};
@@ -4169,6 +4198,11 @@
 		CFC5B45A1AF4673F00FBB52A /* Solaris-sparc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/XCODE/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$DSTROOT/Frameworks/**",
+				);
 			};
 			name = "Solaris-sparc";
 		};
@@ -4194,6 +4228,7 @@
 			baseConfigurationReference = CF2819791AF9A5BF00E93CEE /* windows-i386-Foundation.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = org.cocotron.1.0.windows.i386.gcc.4.3.1;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

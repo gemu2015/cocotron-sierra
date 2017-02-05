@@ -573,6 +573,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE7085281431174600B99A95 /* windows-i386-framework.xcconfig */;
 			buildSettings = {
+				GCC_VERSION = org.cocotron.1.0.windows.i386.gcc.4.3.1;
 				INFOPLIST_FILE = Info.plist;
 				OTHER_CFLAGS = (
 					"-DCOCOA_INSIDE_BUILD",
@@ -614,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE7085281431174600B99A95 /* windows-i386-framework.xcconfig */;
 			buildSettings = {
+				GCC_VERSION = org.cocotron.1.0.windows.i386.gcc.4.3.1;
 				INFOPLIST_FILE = Info.plist;
 				OTHER_CFLAGS = (
 					"-DCOCOA_INSIDE_BUILD",
