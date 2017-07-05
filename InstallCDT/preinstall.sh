@@ -13,7 +13,7 @@ cd /usr/bin
 rm /usr/local/bin/gcc
 
 # this line must be adapted to the current version of home-brew
-sudo ln -s /usr/local/Cellar/gcc@4.9/4.9.3_1/bin/gcc-4.9 /usr/local/bin/gcc
+sudo ln -s /usr/local/Cellar/gcc@4.9/4.9.4/bin/gcc-4.9 /usr/local/bin/gcc
 
 /bin/echo "done with home-brew"
 
