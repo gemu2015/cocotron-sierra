@@ -27,6 +27,12 @@ if you clean the hole project and try to recompile you get => “File exists and
 
 to solve this I had to delete the frameworks folder inside system/i386-mingw32msvc and recompile in this order => foundation, appkit and cocotron.
 
+latest working (compiling) Version is under macos Mojave with xcode 9.4.1
+
+however the generated macos and windows apps still run with latest macos sequoia and windows 11
+
+
+
 
 
  
