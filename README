@@ -29,7 +29,7 @@ to solve this I had to delete the frameworks folder inside system/i386-mingw32ms
 
 latest working (compiling) Version is under macos Mojave with xcode 9.4.1
 
-however the generated macos and windows apps still run with latest macos sequoia and windows 11
+however the generated macos and windows apps still run with latest macos sequoia (also on apple silicon) and windows 11
 
 
 
